@@ -376,6 +376,12 @@ ${marketResearch.markdown_output}
                 </div>
               )}
 
+              {success && (
+                <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-sm text-green-700">{success}</p>
+                </div>
+              )}
+
               {/* Research History */}
               {researchHistory.length > 0 && (
                 <div className="mt-8">
