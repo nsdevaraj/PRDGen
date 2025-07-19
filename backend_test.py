@@ -87,31 +87,33 @@ def test_market_research_endpoint_with_valid_key():
         return False, None
 
 def test_market_research_without_api_key():
-    """Test market research endpoint without API key (should fail gracefully)"""
+    """Test market research endpoint without API key (should use env variable)"""
     print("\n🔍 Testing Market Research Endpoint without API Key...")
     
     try:
         test_data = SAMPLE_PRODUCT_IDEA.copy()
-        # Don't include openai_api_key
+        # Don't include openai_api_key - should fall back to env variable
         
         response = requests.post(
             f"{BACKEND_URL}/market-research",
             json=test_data,
             headers={"Content-Type": "application/json"},
-            timeout=30
+            timeout=60
         )
         
-        if response.status_code == 400:
-            print("✅ Properly handles missing API key with 400 error")
-            print(f"   Error message: {response.json().get('detail')}")
+        if response.status_code == 200:
+            print("✅ Properly falls back to environment API key")
+            result = response.json()
+            print(f"   Response ID: {result.get('id')}")
+            print(f"   Markdown length: {len(result.get('markdown_output', ''))}")
             return True
         else:
-            print(f"❌ Expected 400 error but got {response.status_code}")
+            print(f"❌ Expected 200 success but got {response.status_code}")
             print(f"   Response: {response.text}")
             return False
             
     except Exception as e:
-        print(f"❌ API key validation test failed: {str(e)}")
+        print(f"❌ API key fallback test failed: {str(e)}")
         return False
 
 def test_market_research_with_invalid_api_key():
