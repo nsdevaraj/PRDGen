@@ -16,10 +16,16 @@ const App = () => {
     core_features: [""]
   });
   const [openaiKey, setOpenaiKey] = useState("");
+  const [githubToken, setGithubToken] = useState("");
+  const [githubRepo, setGithubRepo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
   const [marketResearch, setMarketResearch] = useState(null);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [researchHistory, setResearchHistory] = useState([]);
+  const markdownRef = useRef(null);
 
   useEffect(() => {
     fetchResearchHistory();
