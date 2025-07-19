@@ -314,6 +314,46 @@ ${marketResearch.markdown_output}
                 </p>
               </div>
 
+              {/* GitHub Integration */}
+              <div className="mb-6 border-t pt-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">GitHub Integration (Optional)</h3>
+                
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    GitHub Personal Access Token
+                  </label>
+                  <input
+                    type="password"
+                    value={githubToken}
+                    onChange={(e) => setGithubToken(e.target.value)}
+                    placeholder="ghp_..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Create token at{" "}
+                    <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      GitHub Settings
+                    </a>
+                  </p>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Repository (owner/repo)
+                  </label>
+                  <input
+                    type="text"
+                    value={githubRepo}
+                    onChange={(e) => setGithubRepo(e.target.value)}
+                    placeholder="myorg/my-repo"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Repository where to create PRD issue
+                  </p>
+                </div>
+              </div>
+
               {/* Generate Button */}
               <button
                 onClick={performMarketResearch}
