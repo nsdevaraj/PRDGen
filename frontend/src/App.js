@@ -93,6 +93,20 @@ const App = () => {
     setMarketResearch(research);
   };
 
+  const resetForm = () => {
+    setProductIdea({
+      title: "",
+      target_user: "",
+      core_features: [""]
+    });
+    setOpenaiKey("");
+    setGithubToken("");
+    setGithubRepo("");
+    setMarketResearch(null);
+    setError("");
+    setSuccess("");
+  };
+
   const exportToPDF = async () => {
     if (!marketResearch) return;
     
