@@ -209,10 +209,7 @@ metadata:
   run_ui: false
 
 test_plan:
-  current_focus:
-    - "OpenAI Integration Setup"
-    - "Market Research API Endpoint"
-    - "Embedded System Prompt Implementation"
+  current_focus: []
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
