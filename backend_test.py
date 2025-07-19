@@ -216,7 +216,7 @@ def run_all_tests():
     # Test 2: Market Research with Valid Key
     test_results['market_research_valid'], research_id = test_market_research_endpoint_with_valid_key()
     
-    # Test 3: Market Research without API Key
+    # Test 3: Market Research without API Key (should use env fallback)
     test_results['market_research_no_key'] = test_market_research_without_api_key()
     
     # Test 4: Market Research with Invalid API Key
