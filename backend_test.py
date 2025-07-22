@@ -11,7 +11,7 @@ import os
 from datetime import datetime
 
 # Get backend URL from frontend .env file
-BACKEND_URL = "https://0c183244-174c-4533-8f6a-ffedaa2d85d3.preview.emergentagent.com/api"
+BACKEND_URL = "https://e7976d8b-a38e-408c-81ff-b2d88e7c95ff.preview.emergentagent.com/api"
 
 # Test data from review request
 SAMPLE_PRODUCT_IDEA = {
